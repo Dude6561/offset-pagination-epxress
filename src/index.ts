@@ -1,5 +1,6 @@
 import Express from "express";
 import { Request, Response } from "express";
+import cursorRoute from "./routes/cursorRoute";
 const app = Express();
 const PORT = 3000;
 const user = [
@@ -24,6 +25,8 @@ app.get("/users", (req: Request, res: Response) => {
 
   res.json(results);
 });
+
+app.use("/", cursorRoute);
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
